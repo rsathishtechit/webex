@@ -1,6 +1,6 @@
 {
     "name": "sathish/webex",
-    "description": "PHP package for CISCO webex XML and NBR API'x",
+    "description": "PHP package for CISCO webex XML and NBR API's",
     "type": "library",
     "require": {
         "riverline/multipart-parser": "^1.1"
