@@ -1,0 +1,16 @@
+{
+    "name": "sathish/webex",
+    "description": "PHP package for CISCO webex XML and NBR API'x",
+    "type": "library",
+    "require": {
+        "riverline/multipart-parser": "^1.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sathishkumar Rakkiasamy",
+            "email": "rsathishtechit@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
