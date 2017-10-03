@@ -6,12 +6,12 @@
  * Time: 3:41 AM
  */
 
-namespace Sathish\Webex\NBR;
+namespace Sathish\Webex\Nbr;
 use Riverline\MultiPartParser\Part;
 
 /**
  * Class WebEXNBR
- * @package sathish\webex\nbr
+ * @package Sathish\Webex\Nbr
  */
 class WebExNBR
 {
@@ -161,7 +161,7 @@ class WebExNBR
     public function sendRequest()
     {
 
-        $url = 'https://nln1wss1.webex.com/nbr/services//' . $this->serviceName;
+        $url = 'https://nln1wss1.webex.com/Nbr/services//' . $this->serviceName;
         //open connection
         $ch = curl_init();
         curl_setopt( $ch, CURLOPT_URL, $url );
