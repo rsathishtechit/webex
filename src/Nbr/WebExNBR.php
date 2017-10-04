@@ -7,6 +7,7 @@
  */
 
 namespace Sathish\Webex\Nbr;
+use Riverline\MultiPartParser\Part;
 
 /**
  * Class WebEXNBR
@@ -108,8 +109,9 @@ class WebExNBR
      */
     public function downloadRecording($recordID, $retry = 1)
     {
+        ini_set('memory_limit', 0);
         $this->serviceName = 'NBRStorageService';
-        $this->constructBody('downloadNBRStorageFile', ['recordId' => $recordID, 'siteID' => $this->siteId, 'ticket' => $this->ticket]);
+        $this->constructBody('downloadNBRStorageFile', ['recordId' => $recordID, 'siteId' => $this->siteId, 'ticket' => $this->ticket]);
         return $this->sendRequest();
     }
 
