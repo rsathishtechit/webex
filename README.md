@@ -40,7 +40,7 @@ To know more about WebEx NBR API https://developer.cisco.com/site/webex-develope
 
 ```
     $nbr = new WebExNBR('<admin username>', '<admin password>', '<site id>');
-    $nbr->setServiceUrl('<NBR API URL>'); /** Dot append slash(/) at the end **/
+    $nbr->setServiceUrl('<NBR API URL>'); /** Don't append slash(/) at the end **/
     $nbr->generateTicket();
 ```    
 ### To download recording (Response will be in multipart format)
