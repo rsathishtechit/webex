@@ -149,8 +149,10 @@ class WebExNBR
      */
     public function sendRequest()
     {
-
-        $url = 'https://nln1wss1.webex.com/Nbr/services//' . $this->serviceName;
+        if (!isset($this->serviceURL)) {
+            throw new \Exception('Service URL is not set. Use setServiceUrl() method to add service URL.');
+        }
+        $url = $this->serviceURL . '/' . $this->serviceName;
         //open connection
         $ch = curl_init();
         curl_setopt( $ch, CURLOPT_URL, $url );
