@@ -20,6 +20,21 @@ or edit the `composer.json`
     "sathish/webex": "dev-master"
 }
 ```
+| Available NBR API Methods | Available (in this package) |
+| --------------------------|:---------------------------:|
+| deleteMeetingXML          |  No                         |
+| deleteNBRStorageFile      |  No                         |
+| downloadFile              |  No                         | 
+| downloadNBRStorageFile    |  Yes                        | 
+| downloadWAVFile           |  No                         | 
+| getMeetingTicket          |  No                         | 
+| getNBRConfIdList          |  No                         | 
+| getNBRRecordIdList        |  Yes                        | 
+| getNBRStorageFile         |  No                         | 
+| getSCXML                  |  No                         | 
+| getStorageAccessTicket    |  Yes                        | 
+
+
 ## Usage
 
 ```
