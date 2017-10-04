@@ -12,5 +12,13 @@
             "email": "rsathishtechit@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Sathish\\Webex": "src/"
+        }
+    }
 }
