@@ -104,8 +104,7 @@ class WebExNBR
      *
      * @param int $recordID
      * @param int $retry
-     * @return array
-     * @throws \Exception
+     * @return string
      */
     public function downloadRecording($recordID, $retry = 1)
     {
