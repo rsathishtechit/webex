@@ -48,6 +48,13 @@ To know more about WebEx NBR API https://developer.cisco.com/site/webex-develope
 ```
     $nbr->downloadRecording('<recoding id>');
 ```
+
+### Retrieve recording list
+ 
+```
+   $nbr->recordingList();
+```
+
 ### Regenerate ticket after 1 hour
  
 ```
