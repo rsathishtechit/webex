@@ -39,6 +39,8 @@ To know more about WebEx NBR API https://developer.cisco.com/site/webex-develope
 ## Usage
 
 ```
+    use Sathish\Webex\Nbr\WebExNBR;
+    
     $nbr = new WebExNBR('<admin username>', '<admin password>', '<site id>');
     $nbr->setServiceUrl('<NBR API URL>'); /** Don't append slash(/) at the end **/
     $nbr->generateTicket();
