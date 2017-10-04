@@ -61,6 +61,6 @@ To know more about WebEx NBR API https://developer.cisco.com/site/webex-develope
    $nbr->refreshTicket();
 ```
 
-Use Riverline\MultiPartParse package to parse the downloadRecording method. For more info https://github.com/Riverline/multipart-parser
+Use Riverline\MultiPartParse package to parse the downloadRecording response. For more info https://github.com/Riverline/multipart-parser
 
 Note: PRs are welcomed.
