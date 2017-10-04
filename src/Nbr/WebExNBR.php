@@ -74,7 +74,7 @@ class WebExNBR
     }
 
     /**
-     * Method to generate the storage access ticket;
+     * Implementation of getStorageAccessTicket to generate the storage access ticket
      *
      * @return void
      */
@@ -99,7 +99,7 @@ class WebExNBR
     }
 
     /**
-     * Method to download the recording(Multipart) from NBR server.
+     * Implementation of downloadNBRStorageFile download the recording(Multipart) from NBR server
      *
      * @param int $recordID
      * @param int $retry
@@ -107,9 +107,20 @@ class WebExNBR
      */
     public function downloadRecording($recordID, $retry = 1)
     {
-        ini_set('memory_limit', 0);
         $this->serviceName = 'NBRStorageService';
         $this->constructBody('downloadNBRStorageFile', ['recordId' => $recordID, 'siteId' => $this->siteId, 'ticket' => $this->ticket]);
+        return $this->sendRequest();
+    }
+
+    /**
+     * Implementation of getNBRRecordIdList API to retrieve the list of recordings
+     *
+     * @return mixed
+     */
+    public function recordingList()
+    {
+        $this->serviceName = 'nbrXmlService';
+        $this->constructBody('getNBRRecordIdList', ['siteID ' => $this->siteId, 'username' => $this->adminUsername, 'password' => $this->adminPassword]);
         return $this->sendRequest();
     }
 
@@ -122,9 +133,9 @@ class WebExNBR
      */
     public function constructBody($method, array $data)
     {
-        $this->xmlBody = '<soapenv:Body><ns1:' . $method .  ' xmlns:ns1="' . $this->serviceName . '">';
+        $this->xmlBody = '<soapenv:Body><ns1:' . $method . ' xmlns:ns1="' . $this->serviceName . '">';
         foreach ($data as $key => $value) {
-            $this->xmlBody .= '<' . $key .'>' . $value . '</' . $key . '>';
+            $this->xmlBody .= '<' . $key . '>' . $value . '</' . $key . '>';
         }
         $this->xmlBody .= '</ns1:' . $method . '></soapenv:Body>';
         $this->constructXml();
@@ -156,11 +167,11 @@ class WebExNBR
         $url = $this->serviceURL . '/' . $this->serviceName;
         //open connection
         $ch = curl_init();
-        curl_setopt( $ch, CURLOPT_URL, $url );
-        curl_setopt( $ch, CURLOPT_POST, true );
-        curl_setopt( $ch, CURLOPT_HTTPHEADER, ['Content-Type:text/xml', 'SOAPAction:" "']);
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $ch, CURLOPT_POSTFIELDS, "$this->xml" );
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:text/xml', 'SOAPAction:" "']);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "$this->xml");
         $result = curl_exec($ch);
         $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
