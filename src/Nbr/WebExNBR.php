@@ -7,7 +7,6 @@
  */
 
 namespace Sathish\Webex\Nbr;
-use Riverline\MultiPartParser\Part;
 
 /**
  * Class WebEXNBR
@@ -144,9 +143,10 @@ class WebExNBR
     }
 
     /**
-     * Method to send the CURL request to WebEx NBR Server
+     * Method to send the CURL request to WebEx NBR API Server
      *
-     * @return string
+     * @return mixed
+     * @throws \Exception
      */
     public function sendRequest()
     {
