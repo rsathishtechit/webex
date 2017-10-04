@@ -7,7 +7,6 @@
  */
 
 namespace Sathish\Webex\Nbr;
-use Riverline\MultiPartParser\Part;
 
 /**
  * Class WebEXNBR
@@ -110,18 +109,8 @@ class WebExNBR
     public function downloadRecording($recordID, $retry = 1)
     {
         $this->serviceName = 'NBRStorageService';
-        $this->constructBody('downloadNBRStorageFile', ['recordID' => $recordID, 'siteID' => $this->siteId, 'ticket' => $this->ticket]);
-        $response =  $this->sendRequest();
-        $parts = new Part($response);
-        if ($parts->isMultiPart()) {
-            $name = strtok($parts[1]->getBody(), '\n\t')[0];
-            $content = $parts[2]->getBody();
-            return compact('name', 'content');
-        } else {
-            if ($retry > 2) { throw new \Exception('Error in downloading the file. Please check the response');}
-            $this->refreshTicket();
-            $this->downloadRecording($recordID, $retry++);
-        }
+        $this->constructBody('downloadNBRStorageFile', ['recordId' => $recordID, 'siteID' => $this->siteId, 'ticket' => $this->ticket]);
+        return $this->sendRequest();
     }
 
     /**
