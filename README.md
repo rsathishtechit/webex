@@ -34,6 +34,7 @@ or edit the `composer.json`
 | getSCXML                  |  No                         | 
 | getStorageAccessTicket    |  Yes                        | 
 
+To know more about WebEx NBR API https://developer.cisco.com/site/webex-developer/develop-test/nbr-web-services-api/api-functions.gsp
 
 ## Usage
 
@@ -42,7 +43,7 @@ or edit the `composer.json`
     $nbr->setServiceUrl('<NBR API URL>'); /** Dot append slash(/) at the end **/
     $nbr->generateTicket();
 ```    
-### For download recording
+### To download recording (Response will be in multipart format)
 
 ```
     $nbr->downloadRecording('<recoding id>');
