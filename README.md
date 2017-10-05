@@ -20,6 +20,13 @@ or edit the `composer.json`
     "sathish/webex": "dev-master"
 }
 ```
+then run 
+```
+composer install
+```
+
+### API Implementation
+
 | Available NBR API Methods | Available (in this package) |
 | --------------------------|:---------------------------:|
 | deleteMeetingXML          |  No                         |
